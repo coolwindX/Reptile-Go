@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import re
 
 #顶层函数
-def main(a,b = None,c = None,d = None):
+def main(a,b = None,c = None,d = None):  ##主函数
     print("欢迎使用Reptile-Go".center(50,"-"))
     print("功能: \n {} \n {} \n {} \n {}".format(a,b,c,d))
     global user
@@ -26,7 +26,7 @@ def main(a,b = None,c = None,d = None):
     else:
         print("不要输入奇怪的东西!请输入数字!")
 
-def text_search():  ##待修
+def text_search():  ##搜索引擎爬取,待修
     content = input("请输入搜索内容:")
     request ="https://www.baidu.com/#ie=UTF-8&wd=" + content 
     txt = requests.get(request)
@@ -47,12 +47,10 @@ def text_search():  ##待修
     txt =analyse.find_all(string=re.compile(string))
     print(txt)
 
-def url():
+def url():  ##自定义链接爬取
     user_url = input("请输入你要爬取的链接 \n (目前还没有提供对robots协议网站的爬取，部分网址可能无效) \n :")
-    '''
-    if user_url not in "http":
+    if user_url[0,4] not in "http":
          user_url = "http://" + user_url
-        '''
     html = requests.get(user_url)
     html.raise_for_status()
     html.encoding = "utf-8"
