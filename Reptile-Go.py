@@ -49,7 +49,7 @@ def text_search():  ##搜索引擎爬取,待修
 
 def url():  ##自定义链接爬取
     user_url = input("请输入你要爬取的链接 \n (目前还没有提供对robots协议网站的爬取，部分网址可能无效) \n :")
-    if user_url[0,4] not in "http":
+    if user_url[0:4] not in "http":
          user_url = "http://" + user_url
     html = requests.get(user_url)
     html.raise_for_status()
@@ -72,7 +72,6 @@ def url():  ##自定义链接爬取
         for text in txt.find_all("p"):
             print(text.string)
         
-
 
 #程序运行
 a,b,c,d = "0.退出脚本","1.自定义链接爬取","2.搜索引擎爬取(开发ing)","3.图片爬取(开发ing)"
