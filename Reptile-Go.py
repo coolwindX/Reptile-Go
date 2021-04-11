@@ -1,7 +1,8 @@
 # version 0.0.1
+
+import re
 import requests
 from bs4 import BeautifulSoup
-import re
 
 #顶层函数
 def main(a,b = None,c = None,d = None):  ##主函数
